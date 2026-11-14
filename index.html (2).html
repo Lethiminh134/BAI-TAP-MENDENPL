@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Ôn Tập và Luyện Tập Tương Tác - Trung tâm GDTX – DN – GTVL Xuyên Mộc</title>
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tải Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tải Font Awesome cho biểu tượng trực quan -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+        /* Tùy chỉnh thanh cuộn nhẹ nhàng */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .fade-in {
+            animation: fadeIn 0.25s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-blue-100 selection:text-blue-900">
+
+    <!-- HEADER CHÍNH CỦA TRUNG TÂM -->
+    <header class="bg-gradient-to-r from-blue-800 via-blue-700 to-indigo-800 text-white shadow-md sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-3 text-center sm:text-left">
+                <div class="w-11 h-11 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center border border-white/20 shrink-0 shadow-inner">
+                    <i class="fa-solid fa-dna text-2xl text-emerald-300"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-blue-200">
+                        Trung tâm GDTX – DN – GTVL Xuyên Mộc
+                    </p>
+                    <h1 class="text-base sm:text-lg font-extrabold tracking-tight leading-snug">
+                        WEBSITE ÔN TẬP VÀ LUYỆN TẬP TƯƠNG TÁC
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Thông tin học viên khi đang làm bài -->
+            <div id="header-student-info" class="hidden items-center gap-3 bg-white/10 px-3.5 py-1.5 rounded-xl border border-white/15 text-xs sm:text-sm">
+                <div class="flex items-center gap-1.5">
+                    <i class="fa-solid fa-user-graduate text-emerald-300"></i>
+                    <span id="display-student-name" class="font-semibold">Học viên</span>
+                </div>
+                <span class="text-white/40">|</span>
+                <div class="flex items-center gap-1.5">
+                    <i class="fa-solid fa-users text-blue-200"></i>
+                    <span id="display-student-class" class="font-medium">Lớp 12</span>
+                </div>
+                <button onclick="returnToHome()" title="Về trang chủ" class="ml-1 bg-white/15 hover:bg-white/25 text-white px-2.5 py-1 rounded-lg transition text-xs font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="hidden md:inline">Trang chủ</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- NỘI DUNG CHÍNH -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-6 sm:py-8">
+
+        <!-- ==================== MÀN HÌNH 1: TRANG CHỦ ==================== -->
+        <section id="view-home" class="fade-in space-y-6">
+            <!-- Banner giới thiệu chuyên đề -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
+                <div class="bg-gradient-to-r from-emerald-600 to-teal-700 px-6 py-5 text-white">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <span class="inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            <i class="fa-solid fa-book-open"></i> Môn: Sinh học 12 – Chương trình GDPT 2018
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 bg-amber-400/20 text-amber-100 border border-amber-300/30 text-xs font-semibold px-3 py-1 rounded-full">
+                            <i class="fa-solid fa-list-check"></i> Ngân hàng: 30 câu hỏi trắc nghiệm
+                        </span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-extrabold leading-snug">
+                        CHUYÊN ĐỀ: QUY LUẬT PHÂN LI ĐỘC LẬP CỦA MENDEL
+                    </h2>
+                    <p class="text-emerald-100 text-sm mt-1">
+                        Phân loại mức độ: Vận dụng (17 câu) & Vận dụng cao (13 câu) • Mã đề chuẩn: 101
+                    </p>
+                </div>
+
+                <div class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                    <!-- Cột trái: Nhập thông tin học viên -->
+                    <div class="lg:col-span-5 bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
+                        <div class="flex items-center gap-2 text-blue-800 font-bold text-base border-b border-slate-200 pb-2.5">
+                            <i class="fa-solid fa-id-card text-blue-600"></i>
+                            <span>THÔNG TIN HỌC VIÊN</span>
+                        </div>
+                        
+                        <div>
+                            <label for="input-name" class="block text-sm font-semibold text-slate-700 mb-1.5">
+                                Họ và tên học viên <span class="text-rose-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                                    <i class="fa-solid fa-user"></i>
+                                </span>
+                                <input type="text" id="input-name" placeholder="Ví dụ: Nguyễn Văn An"
+                                    class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="input-class" class="block text-sm font-semibold text-slate-700 mb-1.5">
+                                Lớp học <span class="text-rose-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </span>
+                                <input type="text" id="input-class" placeholder="Ví dụ: 12A1"
+                                    class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                            </div>
+                        </div>
+
+                        <div id="home-error-box" class="hidden bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium px-3.5 py-2.5 rounded-xl flex items-center gap-2">
+                            <i class="fa-solid fa-circle-exclamation text-rose-500 text-sm"></i>
+                            <span id="home-error-text">Vui lòng nhập đầy đủ Họ tên và Lớp trước khi bắt đầu!</span>
+                        </div>
+
+                        <!-- Thống kê câu sai đã lưu -->
+                        <div class="bg-blue-50/80 border border-blue-200/80 rounded-xl p-3.5 text-xs text-blue-900 space-y-1">
+                            <div class="font-bold flex items-center justify-between">
+                                <span><i class="fa-solid fa-clock-rotate-left mr-1 text-blue-600"></i> Dữ liệu ôn tập cá nhân:</span>
+                                <span id="wrong-count-badge" class="bg-rose-100 text-rose-700 font-bold px-2 py-0.5 rounded-full">0 câu sai</span>
+                            </div>
+                            <p class="text-blue-700/80 leading-relaxed">
+                                Hệ thống tự động ghi nhớ các câu trả lời sai của bạn để ôn luyện lại bất cứ lúc nào.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Cột phải: Chọn hình thức luyện tập -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+                            <div class="flex items-center gap-2 text-slate-800 font-bold text-base">
+                                <i class="fa-solid fa-layer-group text-emerald-600"></i>
+                                <span>CHỌN HÌNH THỨC LUYỆN TẬP</span>
+                            </div>
+                            <span class="text-xs font-medium text-slate-500">Chọn 1 chế độ bên dưới</span>
+                        </div>
+
+                        <!-- Các chế độ luyện tập -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="mode-selector">
+                            <!-- Mode 1: Toàn bộ -->
+                            <button type="button" onclick="selectMode('all')" data-mode="all"
+                                class="mode-card text-left p-3.5 rounded-xl border-2 border-blue-600 bg-blue-50/60 transition flex items-start gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-list-ol"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-slate-900 text-sm">Ôn tập toàn bộ đề</div>
+                                    <div class="text-xs text-slate-600 mt-0.5">Đầy đủ 30 câu hỏi theo đúng thứ tự phiếu bài tập</div>
+                                </div>
+                            </button>
+
+                            <!-- Mode 2: Ngẫu nhiên -->
+                            <button type="button" onclick="selectMode('random')" data-mode="random"
+                                class="mode-card text-left p-3.5 rounded-xl border-2 border-slate-200 bg-white hover:border-blue-300 transition flex items-start gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-shuffle"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-slate-900 text-sm">Luyện tập ngẫu nhiên</div>
+                                    <div class="text-xs text-slate-600 mt-0.5">Xáo trộn ngẫu nhiên toàn bộ 30 câu hỏi & đáp án</div>
+                                </div>
+                            </button>
+
+                            <!-- Mode 3: Theo mức độ -->
+                            <button type="button" onclick="selectMode('level')" data-mode="level"
+                                class="mode-card text-left p-3.5 rounded-xl border-2 border-slate-200 bg-white hover:border-blue-300 transition flex items-start gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-signal"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-slate-900 text-sm">Luyện tập theo mức độ</div>
+                                    <div class="text-xs text-slate-600 mt-0.5">Chọn riêng mức Nhận biết, Thông hiểu, Vận dụng, VDC</div>
+                                </div>
+                            </button>
+
+                            <!-- Mode 4: Theo chủ đề -->
+                            <button type="button" onclick="selectMode('topic')" data-mode="topic"
+                                class="mode-card text-left p-3.5 rounded-xl border-2 border-slate-200 bg-white hover:border-blue-300 transition flex items-start gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-folder-tree"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-slate-900 text-sm">Luyện tập theo chủ đề</div>
+                                    <div class="text-xs text-slate-600 mt-0.5">Chia theo từng dạng toán quy luật phân li độc lập</div>
+                                </div>
+                            </button>
+
+                            <!-- Mode 5: Làm lại câu sai -->
+                            <button type="button" onclick="selectMode('wrong')" data-mode="wrong"
+                                class="mode-card sm:col-span-2 text-left p-3.5 rounded-xl border-2 border-slate-200 bg-white hover:border-rose-300 transition flex items-center justify-between gap-3">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-slate-900 text-sm">Làm lại những câu đã trả lời sai</div>
+                                        <div class="text-xs text-slate-600 mt-0.5">Tập trung khắc phục các câu hỏi bạn từng làm sai ở các lượt trước</div>
+                                    </div>
+                                </div>
+                                <span id="mode-wrong-count" class="text-xs font-bold bg-rose-100 text-rose-700 px-2.5 py-1 rounded-lg shrink-0">0 câu</span>
+                            </button>
+                        </div>
+
+                        <!-- Bộ lọc phụ khi chọn Theo mức độ -->
+                        <div id="subfilter-level" class="hidden bg-amber-50/70 border border-amber-200 rounded-xl p-3.5 space-y-2">
+                            <label class="block text-xs font-bold text-amber-900 uppercase">Chọn mức độ nhận thức:</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                <button type="button" onclick="setLevelFilter('NB')" class="level-btn px-3 py-2 rounded-lg text-xs font-semibold border border-amber-300 bg-white text-slate-700 hover:bg-amber-100 transition" data-val="NB">
+                                    Nhận biết (0)
+                                </button>
+                                <button type="button" onclick="setLevelFilter('TH')" class="level-btn px-3 py-2 rounded-lg text-xs font-semibold border border-amber-300 bg-white text-slate-700 hover:bg-amber-100 transition" data-val="TH">
+                                    Thông hiểu (0)
+                                </button>
+                                <button type="button" onclick="setLevelFilter('VD')" class="level-btn px-3 py-2 rounded-lg text-xs font-semibold border-2 border-amber-600 bg-amber-600 text-white transition" data-val="VD">
+                                    Vận dụng (17)
+                                </button>
+                                <button type="button" onclick="setLevelFilter('VDC')" class="level-btn px-3 py-2 rounded-lg text-xs font-semibold border border-amber-300 bg-white text-slate-700 hover:bg-amber-100 transition" data-val="VDC">
+                                    Vận dụng cao (13)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Bộ lọc phụ khi chọn Theo chủ đề -->
+                        <div id="subfilter-topic" class="hidden bg-emerald-50/70 border border-emerald-200 rounded-xl p-3.5 space-y-2">
+                            <label for="topic-select" class="block text-xs font-bold text-emerald-900 uppercase">Chọn dạng bài / chủ đề kiến thức:</label>
+                            <select id="topic-select" class="w-full p-2.5 bg-white border border-emerald-300 rounded-xl text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                <option value="topic1">Dạng 1: Số loại giao tử & Tỉ lệ giao tử (Câu 1 – 4, 24 – 26)</option>
+                                <option value="topic2">Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene (Câu 5 – 14)</option>
+                                <option value="topic3">Dạng 3: Xác suất kiểu hình & Tổ hợp tính trạng trội/lặn (Câu 15 – 23)</option>
+                                <option value="topic4">Dạng 4: Tổ hợp allele trội & Bài toán tự thụ/giao phấn F₁ (Câu 27 – 30)</option>
+                            </select>
+                        </div>
+
+                        <!-- Nút BẮT ĐẦU ÔN TẬP -->
+                        <div class="pt-2">
+                            <button type="button" onclick="startQuiz()"
+                                class="w-full py-3.5 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 active:scale-[0.99] text-white font-extrabold text-base rounded-xl shadow-lg shadow-blue-600/25 transition flex items-center justify-center gap-2.5">
+                                <i class="fa-solid fa-play"></i>
+                                <span>BẮT ĐẦU ÔN TẬP</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MÀN HÌNH 2: GIAO DIỆN LÀM BÀI ==================== -->
+        <section id="view-quiz" class="hidden fade-in space-y-5">
+            <!-- Thanh thông tin & Tiến trình -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-5">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                    <div class="flex items-center gap-2.5">
+                        <span id="quiz-mode-badge" class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">
+                            Chế độ: Toàn bộ 30 câu
+                        </span>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-600">
+                            Đã hoàn thành: <strong id="progress-text" class="text-blue-700">0/30</strong> câu
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="text-xs sm:text-sm font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-xl flex items-center gap-1.5">
+                            <i class="fa-regular fa-clock text-blue-600"></i>
+                            <span id="timer-display">00:00</span>
+                        </div>
+                        <button type="button" onclick="openSubmitModal()"
+                            class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-4 py-2 rounded-xl shadow-sm transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>NỘP BÀI</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thanh tiến trình trực quan -->
+                <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
+                    <div id="progress-bar" class="bg-gradient-to-r from-blue-600 to-emerald-500 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Khu vực chính: Câu hỏi bên trái, Bảng điều hướng bên phải -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+                <!-- Khung hiển thị câu hỏi hiện tại -->
+                <div class="lg:col-span-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-7 flex flex-col justify-between min-h-[400px]">
+                    <div>
+                        <!-- Header câu hỏi -->
+                        <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100">
+                            <div class="flex items-center gap-2">
+                                <span id="q-number-badge" class="bg-blue-700 text-white font-extrabold text-sm px-3.5 py-1 rounded-xl">
+                                    Câu 1 / 30
+                                </span>
+                                <span id="q-original-num" class="text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-lg">
+                                    Mã gốc: Câu 1
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span id="q-level-badge" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800">
+                                    Mức độ: Vận dụng
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Nội dung đề bài -->
+                        <div id="q-content" class="mt-5 text-base sm:text-lg font-semibold text-slate-800 leading-relaxed">
+                            <!-- Nội dung câu hỏi sẽ được render bằng JS -->
+                        </div>
+
+                        <!-- Danh sách phương án lựa chọn A, B, C, D -->
+                        <div id="q-options" class="mt-6 space-y-3">
+                            <!-- Các nút đáp án sẽ được render bằng JS -->
+                        </div>
+                    </div>
+
+                    <!-- Nút điều hướng Câu trước / Câu tiếp theo -->
+                    <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                        <button type="button" id="btn-prev" onclick="prevQuestion()"
+                            class="px-4 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 font-bold text-sm transition flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span>Câu trước</span>
+                        </button>
+
+                        <button type="button" onclick="clearCurrentAnswer()"
+                            class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition">
+                            <i class="fa-solid fa-eraser mr-1"></i> Xóa lựa chọn
+                        </button>
+
+                        <button type="button" id="btn-next" onclick="nextQuestion()"
+                            class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-sm transition flex items-center gap-2">
+                            <span>Câu tiếp theo</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bảng số thứ tự câu hỏi (Palette) -->
+                <div class="lg:col-span-4 bg-white rounded-2xl shadow-sm border border-slate-200 p-5 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <h3 class="font-bold text-slate-800 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-table-cells text-blue-600"></i>
+                            <span>BẢNG CÂU HỎI</span>
+                        </h3>
+                        <span class="text-xs text-slate-500">Bấm để chuyển nhanh</span>
+                    </div>
+
+                    <!-- Chú thích màu sắc trạng thái -->
+                    <div class="grid grid-cols-3 gap-2 text-[11px] font-semibold text-slate-600 bg-slate-50 p-2.5 rounded-xl border border-slate-200/70">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3.5 h-3.5 rounded bg-blue-600 inline-block shrink-0"></span>
+                            <span>Đang xem</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3.5 h-3.5 rounded bg-emerald-500 inline-block shrink-0"></span>
+                            <span>Đã làm</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-200 border border-slate-300 inline-block shrink-0"></span>
+                            <span>Chưa làm</span>
+                        </div>
+                    </div>
+
+                    <!-- Lưới các ô số câu -->
+                    <div id="question-grid" class="grid grid-cols-5 sm:grid-cols-6 lg:grid-cols-5 gap-2 max-h-[340px] overflow-y-auto pr-1">
+                        <!-- Render bằng JS -->
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="button" onclick="openSubmitModal()"
+                            class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm rounded-xl shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-check-double"></i>
+                            <span>NỘP BÀI & CHẤM ĐIỂM</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MÀN HÌNH 3: KẾT QUẢ & LỜI GIẢI CHI TIẾT ==================== -->
+        <section id="view-result" class="hidden fade-in space-y-6">
+            <!-- Bảng tổng hợp điểm số -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-800 to-indigo-800 px-6 py-5 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-blue-200">Kết quả bài luyện tập</span>
+                        <h2 id="res-student-banner" class="text-xl sm:text-2xl font-extrabold mt-0.5">
+                            Học viên: Nguyễn Văn An – Lớp 12A1
+                        </h2>
+                        <p id="res-time-taken" class="text-xs text-blue-200 mt-1">
+                            Thời gian hoàn thành: 05 phút 20 giây
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <button type="button" onclick="retryWrongQuestions()" id="btn-retry-wrong-res"
+                            class="bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>Làm lại câu sai</span>
+                        </button>
+                        <button type="button" onclick="returnToHome()"
+                            class="bg-white text-blue-800 hover:bg-blue-50 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Chọn đề khác</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 5 thẻ chỉ số thống kê -->
+                <div class="p-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <!-- Điểm hệ 10 -->
+                    <div class="col-span-2 sm:col-span-1 bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-bold text-blue-700 uppercase">Điểm số (Thang 10)</div>
+                        <div id="res-score" class="text-3xl sm:text-4xl font-black text-blue-800 my-1">0.0</div>
+                        <div id="res-rank" class="text-xs font-semibold text-blue-600">Cần cố gắng thêm</div>
+                    </div>
+
+                    <!-- Số câu đúng -->
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-bold text-emerald-700 uppercase">Số câu đúng</div>
+                        <div id="res-correct" class="text-2xl sm:text-3xl font-extrabold text-emerald-700 my-1">0</div>
+                        <div class="text-xs text-emerald-600">Chính xác</div>
+                    </div>
+
+                    <!-- Số câu sai -->
+                    <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-bold text-rose-700 uppercase">Số câu sai</div>
+                        <div id="res-wrong" class="text-2xl sm:text-3xl font-extrabold text-rose-700 my-1">0</div>
+                        <div class="text-xs text-rose-600">Đã lưu vào sổ sai</div>
+                    </div>
+
+                    <!-- Chưa trả lời -->
+                    <div class="bg-slate-100 border border-slate-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-bold text-slate-600 uppercase">Chưa trả lời</div>
+                        <div id="res-unanswered" class="text-2xl sm:text-3xl font-extrabold text-slate-700 my-1">0</div>
+                        <div class="text-xs text-slate-500">Bỏ trống</div>
+                    </div>
+
+                    <!-- Tỷ lệ hoàn thành -->
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-center">
+                        <div class="text-xs font-bold text-amber-700 uppercase">Tỷ lệ hoàn thành</div>
+                        <div id="res-completion" class="text-2xl sm:text-3xl font-extrabold text-amber-700 my-1">0%</div>
+                        <div id="res-accuracy" class="text-xs text-amber-600">Đúng: 0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danh sách xem lại đáp án & lời giải chi tiết -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 space-y-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+                    <div>
+                        <h3 class="text-lg font-extrabold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-book-open-reader text-emerald-600"></i>
+                            <span>XEM LẠI BÀI LÀM & HƯỚNG DẪN GIẢI CHI TIẾT</span>
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Đối chiếu lựa chọn của bạn với đáp án chuẩn và phương pháp giải từng câu.</p>
+                    </div>
+
+                    <!-- Bộ lọc xem lại -->
+                    <div class="flex flex-wrap gap-2">
+                        <button type="button" onclick="filterReview('all')" class="rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white" data-filter="all">
+                            Tất cả
+                        </button>
+                        <button type="button" onclick="filterReview('wrong')" class="rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200" data-filter="wrong">
+                            Chỉ xem câu sai / bỏ trống
+                        </button>
+                        <button type="button" onclick="filterReview('correct')" class="rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200" data-filter="correct">
+                            Chỉ xem câu đúng
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Container chứa từng thẻ lời giải -->
+                <div id="review-list" class="space-y-4">
+                    <!-- Render bằng JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL XÁC NHẬN NỘP BÀI (Thay thế confirm()) -->
+    <div id="modal-submit" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 fade-in space-y-4">
+            <div class="flex items-center gap-3 text-amber-600">
+                <div class="w-11 h-11 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-circle-question text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-extrabold text-slate-900">Xác nhận nộp bài?</h3>
+                    <p class="text-xs text-slate-500">Sau khi nộp bài, hệ thống sẽ chấm điểm và hiển thị lời giải chi tiết.</p>
+                </div>
+            </div>
+
+            <div id="modal-submit-summary" class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm text-slate-700 space-y-1.5">
+                <!-- Cập nhật động trước khi mở modal -->
+            </div>
+
+            <div class="flex items-center justify-end gap-3 pt-2">
+                <button type="button" onclick="closeSubmitModal()"
+                    class="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-50 transition">
+                    Tiếp tục làm bài
+                </button>
+                <button type="button" onclick="confirmSubmitQuiz()"
+                    class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow transition">
+                    Đồng ý nộp bài
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL THÔNG BÁO CHUNG (Thay thế alert()) -->
+    <div id="modal-notice" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 fade-in space-y-4 text-center">
+            <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto">
+                <i class="fa-solid fa-circle-info text-2xl"></i>
+            </div>
+            <h3 id="notice-title" class="text-lg font-extrabold text-slate-900">Thông báo</h3>
+            <p id="notice-message" class="text-sm text-slate-600 leading-relaxed">Nội dung thông báo</p>
+            <button type="button" onclick="closeNoticeModal()"
+                class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition">
+                Đã hiểu
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-4 px-4 text-center text-xs text-slate-500">
+        <p class="font-semibold text-slate-700">Trung tâm GDTX – DN – GTVL Xuyên Mộc • Tổ Sinh học – Công nghệ</p>
+        <p class="mt-0.5">Hệ thống ôn tập tương tác Sinh học 12 – Chuyên đề Quy luật phân li độc lập của Mendel (Chương trình GDPT 2018)</p>
+    </footer>
+
+    <!-- JAVASCRIPT XỬ LÝ NGÂN HÀNG CÂU HỎI & LOGIC TƯƠNG TÁC -->
+    <script>
+        // =========================================================================
+        // 1. NGÂN HÀNG 30 CÂU HỎI TRÍCH XUẤT CHÍNH XÁC TỪ TÀI LIỆU
+        // =========================================================================
+        const QUESTION_BANK = [
+            {
+                id: 1,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic1",
+                topicName: "Dạng 1: Số loại giao tử & Tỉ lệ giao tử",
+                question: "Cơ thể mang kiểu gene AaBbDdEeFf khi giảm phân bình thường cho tối đa bao nhiêu loại giao tử?",
+                options: { A: "64.", B: "10.", C: "32.", D: "16." },
+                answer: "C",
+                explanation: "Cơ thể AaBbDdEeFf có 5 cặp gene dị hợp phân li độc lập.\nSố loại giao tử tối đa tạo ra là: 2⁵ = 32 loại."
+            },
+            {
+                id: 2,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic1",
+                topicName: "Dạng 1: Số loại giao tử & Tỉ lệ giao tử",
+                question: "Cơ thể mang kiểu gene AABbDdEeFf khi giảm phân bình thường, không xảy ra đột biến sẽ tạo ra bao nhiêu loại giao tử?",
+                options: { A: "8.", B: "64.", C: "32.", D: "16." },
+                answer: "D",
+                explanation: "Cơ thể AABbDdEeFf có 4 cặp gene dị hợp (Bb, Dd, Ee, Ff) phân li độc lập.\nSố loại giao tử tạo ra là: 2⁴ = 16 loại."
+            },
+            {
+                id: 3,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic1",
+                topicName: "Dạng 1: Số loại giao tử & Tỉ lệ giao tử",
+                question: "Cơ thể mang kiểu gene AaBBDdEeFf khi giảm phân bình thường, loại giao tử aBdeF chiếm tỉ lệ bao nhiêu?",
+                options: { A: "1/8.", B: "1/16.", C: "1/32.", D: "3/16." },
+                answer: "B",
+                explanation: "Xét từng cặp gene phân li độc lập:\n• Aa → 1/2 a; BB → 1 B; Dd → 1/2 d; Ee → 1/2 e; Ff → 1/2 F.\n• Tỉ lệ giao tử aBdeF = (1/2) × 1 × (1/2) × (1/2) × (1/2) = 1/16."
+            },
+            {
+                id: 4,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic1",
+                topicName: "Dạng 1: Số loại giao tử & Tỉ lệ giao tử",
+                question: "Cơ thể mang kiểu gene AaBbDdeeGgHh khi giảm phân bình thường, loại giao tử AbdeGh chiếm tỉ lệ bao nhiêu?",
+                options: { A: "3/32.", B: "1/64.", C: "1/16.", D: "1/32." },
+                answer: "D",
+                explanation: "Cơ thể AaBbDdeeGgHh có 5 cặp gene dị hợp (Aa, Bb, Dd, Gg, Hh) và 1 cặp đồng hợp (ee).\nTỉ lệ giao tử AbdeGh = (1/2) × (1/2) × (1/2) × 1 × (1/2) × (1/2) = 1/32."
+            },
+            {
+                id: 5,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic2",
+                topicName: "Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene",
+                question: "Cho cơ thể có kiểu gene AaBbDdEe giao phối với cơ thể có kiểu gene aaBbDdee. Biết mỗi gene quy định một tính trạng, trội lặn hoàn toàn và phân li độc lập. Số loại kiểu gene và số loại kiểu hình được tạo ra ở đời con lần lượt là:",
+                options: { A: "36 và 8.", B: "48 và 16.", C: "24 và 16.", D: "36 và 16." },
+                answer: "D",
+                explanation: "Xét từng cặp phép lai:\n• Aa × aa → 2 kiểu gene, 2 kiểu hình.\n• Bb × Bb → 3 kiểu gene, 2 kiểu hình.\n• Dd × Dd → 3 kiểu gene, 2 kiểu hình.\n• Ee × ee → 2 kiểu gene, 2 kiểu hình.\nTổng số loại kiểu gene = 2 × 3 × 3 × 2 = 36; Tổng số loại kiểu hình = 2 × 2 × 2 × 2 = 16."
+            },
+            {
+                id: 6,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic2",
+                topicName: "Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene",
+                question: "Cho cơ thể có kiểu gene AABbDdEe giao phối với cơ thể có kiểu gene AaBbddEe. Biết các gene phân li độc lập và trội lặn hoàn toàn. Số loại kiểu gene, số loại kiểu hình tối đa ở F₁ là:",
+                options: {
+                    A: "36 kiểu gene, 16 kiểu hình.",
+                    B: "24 kiểu gene, 8 kiểu hình.",
+                    C: "36 kiểu gene, 8 kiểu hình.",
+                    D: "18 kiểu gene, 8 kiểu hình."
+                },
+                answer: "C",
+                explanation: "Xét từng cặp phép lai:\n• AA × Aa → 2 kiểu gene, 1 kiểu hình.\n• Bb × Bb → 3 kiểu gene, 2 kiểu hình.\n• Dd × dd → 2 kiểu gene, 2 kiểu hình.\n• Ee × Ee → 3 kiểu gene, 2 kiểu hình.\nSố loại kiểu gene = 2 × 3 × 2 × 3 = 36; Số loại kiểu hình = 1 × 2 × 2 × 2 = 8."
+            },
+            {
+                id: 7,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic2",
+                topicName: "Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene",
+                question: "Cho phép lai P: AaBbDdEe × AaBBDdEe. Biết cặp gene Aa trội không hoàn toàn, các cặp gene còn lại trội hoàn toàn và phân li độc lập. Số loại kiểu gene và số loại kiểu hình ở F₁ là:",
+                options: {
+                    A: "36 kiểu gene, 16 kiểu hình.",
+                    B: "36 kiểu gene, 8 kiểu hình.",
+                    C: "36 kiểu gene, 12 kiểu hình.",
+                    D: "24 kiểu gene, 12 kiểu hình."
+                },
+                answer: "C",
+                explanation: "Xét từng cặp gene:\n• Aa × Aa (trội không hoàn toàn) → 3 kiểu gene, 3 kiểu hình.\n• Bb × BB (trội hoàn toàn) → 2 kiểu gene, 1 kiểu hình.\n• Dd × Dd (trội hoàn toàn) → 3 kiểu gene, 2 kiểu hình.\n• ee × Ee (trội hoàn toàn) → 2 kiểu gene, 2 kiểu hình.\nSố kiểu gene = 3 × 2 × 3 × 2 = 36; Số kiểu hình = 3 × 1 × 2 × 2 = 12."
+            },
+            {
+                id: 8,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic2",
+                topicName: "Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene",
+                question: "Cho phép lai P: AaBbDd × AaBbdd. Số lượng các loại kiểu gene đồng hợp về tất cả các cặp gene của F₁ là:",
+                options: { A: "2.", B: "8.", C: "4.", D: "6." },
+                answer: "C",
+                explanation: "Xét các kiểu gene đồng hợp ở từng cặp:\n• Aa × Aa → 2 kiểu gene đồng hợp (AA, aa).\n• Bb × Bb → 2 kiểu gene đồng hợp (BB, bb).\n• Dd × dd → 1 kiểu gene đồng hợp (dd).\nSố loại kiểu gene đồng hợp tất cả các cặp gene = 2 × 2 × 1 = 4."
+            },
+            {
+                id: 9,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic2",
+                topicName: "Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene",
+                question: "Cho phép lai P: AaBbDd × AaBbdd. Số lượng các loại kiểu gene dị hợp (dị hợp ít nhất 1 cặp gene) ở F₁ là:",
+                options: { A: "12.", B: "4.", C: "14.", D: "18." },
+                answer: "C",
+                explanation: "Tổng số loại kiểu gene của F₁ = 3 × 3 × 2 = 18.\nSố loại kiểu gene đồng hợp về tất cả các cặp gene = 2 × 2 × 1 = 4.\nSố loại kiểu gene dị hợp ở F₁ = 18 − 4 = 14."
+            },
+            {
+                id: 10,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic2",
+                topicName: "Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene",
+                question: "Cho phép lai P: AaBbDdEe × AABbddEe. Biết các cặp gene phân li độc lập. Số lượng các loại kiểu gene dị hợp (dị hợp ít nhất 1 cặp gene) ở F₁ là:",
+                options: { A: "28.", B: "32.", C: "36.", D: "4." },
+                answer: "B",
+                explanation: "Tổng số loại kiểu gene ở F₁ = 2 × 3 × 2 × 3 = 36.\nSố loại kiểu gene đồng hợp tất cả các cặp = 1 (AA) × 2 (BB, bb) × 1 (dd) × 2 (EE, ee) = 4.\nSố loại kiểu gene dị hợp = 36 − 4 = 32."
+            },
+            {
+                id: 11,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic2",
+                topicName: "Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene",
+                question: "Cho phép lai P: AaBbDdEe × AaBbddEe. Biết các gene phân li độc lập, tỉ lệ loại kiểu gene AaBbDdEe ở F₁ là:",
+                options: { A: "3/16.", B: "1/8.", C: "1/16.", D: "1/32." },
+                answer: "C",
+                explanation: "Xét từng cặp:\n• Aa × Aa → 1/2 Aa; Bb × Bb → 1/2 Bb; Dd × dd → 1/2 Dd; Ee × Ee → 1/2 Ee.\nTỉ lệ kiểu gene AaBbDdEe = (1/2) × (1/2) × (1/2) × (1/2) = 1/16."
+            },
+            {
+                id: 12,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic2",
+                topicName: "Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene",
+                question: "Cho phép lai P: AaBbDdEe × AaBbddEe. Tỉ lệ loại kiểu gene đồng hợp về tất cả các cặp gene ở F₁ là:",
+                options: { A: "3/8.", B: "1/16.", C: "1/8.", D: "1/32." },
+                answer: "B",
+                explanation: "Tỉ lệ đồng hợp ở từng cặp:\n• Aa × Aa → 1/2 đồng hợp; Bb × Bb → 1/2 đồng hợp; Dd × dd → 1/2 đồng hợp; Ee × Ee → 1/2 đồng hợp.\nTỉ lệ đồng hợp tất cả các cặp gene = (1/2)⁴ = 1/16."
+            },
+            {
+                id: 13,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic2",
+                topicName: "Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene",
+                question: "Cho phép lai P: AaBbDdEe × AABbDdEE. Tỉ lệ loại kiểu gene dị hợp về tất cả các cặp gene (AaBbDdEe) ở F₁ là:",
+                options: { A: "1/8.", B: "1/4.", C: "1/16.", D: "1/32." },
+                answer: "C",
+                explanation: "Kiểu gene dị hợp tất cả các cặp là AaBbDdEe:\n• Aa × AA → 1/2 Aa; Bb × Bb → 1/2 Bb; Dd × Dd → 1/2 Dd; Ee × EE → 1/2 Ee.\nTỉ lệ kiểu gene dị hợp tất cả các cặp = (1/2) × (1/2) × (1/2) × (1/2) = 1/16."
+            },
+            {
+                id: 14,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic2",
+                topicName: "Dạng 2: Số loại kiểu gene, kiểu hình & Tỉ lệ kiểu gene",
+                question: "Cho phép lai P: AaBbDdEe × AaBbddEe. Tỉ lệ cá thể mang kiểu gene dị hợp về ít nhất một cặp gene ở F₁ là:",
+                options: { A: "31/32.", B: "7/8.", C: "15/16.", D: "1/16." },
+                answer: "C",
+                explanation: "Tỉ lệ đồng hợp tất cả các cặp gene ở F₁ = (1/2) × (1/2) × (1/2) × (1/2) = 1/16.\nTỉ lệ kiểu gene dị hợp ít nhất 1 cặp gene = 1 − 1/16 = 15/16."
+            },
+            {
+                id: 15,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic3",
+                topicName: "Dạng 3: Xác suất kiểu hình & Tổ hợp tính trạng trội/lặn",
+                question: "Ở đậu Hà Lan, allele A quy định hạt vàng trội hoàn toàn so với allele a quy định hạt xanh; allele B quy định vỏ trơn trội hoàn toàn so với allele b quy định vỏ nhăn; allele D quy định thân cao trội hoàn toàn so với allele d quy định thân thấp. Các cặp gene phân li độc lập. Tỉ lệ kiểu hình hạt vàng, vỏ trơn, thân cao được tạo ra từ phép lai AaBbDd × AabbDd là:",
+                options: { A: "9/16.", B: "3/16.", C: "27/64.", D: "9/32." },
+                answer: "D",
+                explanation: "Kiểu hình hạt vàng, vỏ trơn, thân cao có kiểu gene A-B-D-.\n• Aa × Aa → 3/4 A-; Bb × bb → 1/2 B-; Dd × Dd → 3/4 D-.\nTỉ lệ A-B-D- = (3/4) × (1/2) × (3/4) = 9/32."
+            },
+            {
+                id: 16,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic3",
+                topicName: "Dạng 3: Xác suất kiểu hình & Tổ hợp tính trạng trội/lặn",
+                question: "Ở một loài thực vật, allele A quy định hoa đỏ trội hoàn toàn so với allele a quy định hoa trắng; allele B quy định quả tròn trội hoàn toàn so với allele b quy định quả dài; allele D quy định thân cao trội hoàn toàn so với allele d quy định thân thấp. Các cặp gene phân li độc lập. Tỉ lệ kiểu hình hoa đỏ, quả dài, thân thấp từ phép lai AaBbDd × aaBbdd là:",
+                options: { A: "1/16.", B: "3/16.", C: "1/8.", D: "1/32." },
+                answer: "A",
+                explanation: "Kiểu hình hoa đỏ, quả dài, thân thấp có kiểu gene A-bbdd.\n• Aa × aa → 1/2 A-; Bb × Bb → 1/4 bb; Dd × dd → 1/2 dd.\nTỉ lệ A-bbdd = (1/2) × (1/4) × (1/2) = 1/16."
+            },
+            {
+                id: 17,
+                level: "VD",
+                levelName: "Vận dụng",
+                topic: "topic3",
+                topicName: "Dạng 3: Xác suất kiểu hình & Tổ hợp tính trạng trội/lặn",
+                question: "Ở một loài động vật, các gene quy định tính trạng nằm trên các cặp NST thường khác nhau và trội lặn hoàn toàn: A quy định lông đen > a quy định lông trắng; B quy định tai thẳng > b quy định tai cụp; D quy định đuôi dài > d quy định đuôi ngắn; E quy định mắt nâu > e quy định mắt xanh. Tỉ lệ cá thể có kiểu hình lông đen, tai thẳng, đuôi ngắn, mắt nâu ở đời con của phép lai AaBbDdEe × AaBbddEe là:",
+                options: { A: "27/128.", B: "27/256.", C: "9/64.", D: "81/256." },
+                answer: "A",
+                explanation: "Kiểu hình lông đen, tai thẳng, đuôi ngắn, mắt nâu tương ứng với A-B-ddE-.\n• Aa × Aa → 3/4 A-; Bb × Bb → 3/4 B-; Dd × dd → 1/2 dd; Ee × Ee → 3/4 E-.\nTỉ lệ = (3/4) × (3/4) × (1/2) × (3/4) = 27/128."
+            },
+            {
+                id: 18,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic3",
+                topicName: "Dạng 3: Xác suất kiểu hình & Tổ hợp tính trạng trội/lặn",
+                question: "Hai cơ thể bố, mẹ đều có kiểu gene AaBbDdEe, giả sử quá trình giảm phân diễn ra bình thường. Tỉ lệ con sinh ra có kiểu hình trội về 3 tính trạng là bao nhiêu? Biết mỗi gene quy định một tính trạng, các gene phân li độc lập và trội lặn hoàn toàn.",
+                options: { A: "27/256.", B: "9/64.", C: "81/256.", D: "27/64." },
+                answer: "D",
+                explanation: "Trong phép lai AaBbDdEe × AaBbDdEe, mỗi cặp đều cho tỉ lệ trội = 3/4, tỉ lệ lặn = 1/4.\nXác suất đời con có kiểu hình trội về 3 tính trạng (và lặn 1 tính trạng) là:\nC(4,3) × (3/4)³ × (1/4)¹ = 4 × (27/64) × (1/4) = 27/64."
+            },
+            {
+                id: 19,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic3",
+                topicName: "Dạng 3: Xác suất kiểu hình & Tổ hợp tính trạng trội/lặn",
+                question: "Hai cơ thể bố, mẹ đều có kiểu gene AaBbDdEe, quá trình giảm phân diễn ra bình thường. Tỉ lệ con sinh ra có kiểu hình trội về ít nhất 3 tính trạng là bao nhiêu? Biết mỗi gene quy định một tính trạng, phân li độc lập và trội lặn hoàn toàn.",
+                options: { A: "175/256.", B: "81/256.", C: "189/256.", D: "108/256." },
+                answer: "C",
+                explanation: "Trội về ít nhất 3 tính trạng gồm 2 trường hợp:\n• Trội 3 tính trạng, lặn 1 tính trạng: C(4,3) × (3/4)³ × (1/4) = 108/256.\n• Trội cả 4 tính trạng: (3/4)⁴ = 81/256.\nTổng tỉ lệ = 108/256 + 81/256 = 189/256."
+            },
+            {
+                id: 20,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic3",
+                topicName: "Dạng 3: Xác suất kiểu hình & Tổ hợp tính trạng trội/lặn",
+                question: "Hai cơ thể bố, mẹ đều có kiểu gene AabbDdEe, giả sử quá trình giảm phân diễn ra bình thường. Tỉ lệ con sinh ra có kiểu hình trội về 1 tính trạng là bao nhiêu? Biết mỗi gene quy định một tính trạng, các gene phân li độc lập và trội lặn hoàn toàn.",
+                options: { A: "3/64.", B: "9/64.", C: "27/64.", D: "9/256." },
+                answer: "B",
+                explanation: "Phép lai AabbDdEe × AabbDdEe:\n• Cặp bb × bb luôn cho 100% tính trạng lặn (bb).\n• 3 cặp (Aa, Dd, Ee) mỗi cặp cho 3/4 trội, 1/4 lặn.\nĐể đời con trội về 1 tính trạng thì phải trội ở 1 trong 3 tính trạng (A, D, E) và lặn ở các tính trạng còn lại:\nTỉ lệ = C(3,1) × (3/4)¹ × (1/4)² × 1 = 3 × (3/4) × (1/16) = 9/64."
+            },
+            {
+                id: 21,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic3",
+                topicName: "Dạng 3: Xác suất kiểu hình & Tổ hợp tính trạng trội/lặn",
+                question: "Hai cơ thể bố, mẹ đều có kiểu gene AabbDDEe, giả sử quá trình giảm phân diễn ra bình thường. Tỉ lệ con sinh ra có kiểu hình trội về 3 tính trạng là bao nhiêu? Biết mỗi gene quy định một tính trạng, các gene phân li độc lập và trội lặn hoàn toàn.",
+                options: { A: "3/8.", B: "3/16.", C: "9/16.", D: "6/16." },
+                answer: "C",
+                explanation: "Phép lai AabbDDEe × AabbDDEe:\n• Cặp bb × bb → 100% lặn bb; Cặp DD × DD → 100% trội DD.\nĐể đời con trội về 3 tính trạng thì ngoài tính trạng D luôn trội, cả 2 tính trạng A và E đều phải trội (A-bbDDE-).\nTỉ lệ = (3/4) × 1 × 1 × (3/4) = 9/16."
+            },
+            {
+                id: 22,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic3",
+                topicName: "Dạng 3: Xác suất kiểu hình & Tổ hợp tính trạng trội/lặn",
+                question: "Hai cơ thể bố, mẹ có kiểu gene AabbDDEe × AaBbDdEe, giả sử quá trình giảm phân diễn ra bình thường. Tỉ lệ con sinh ra có kiểu hình trội về 3 tính trạng là bao nhiêu? Biết mỗi gene quy định một tính trạng, các gene phân li độc lập và trội lặn hoàn toàn.",
+                options: { A: "15/32.", B: "9/32.", C: "11/32.", D: "13/32." },
+                answer: "A",
+                explanation: "Xét từng cặp phép lai:\n• DD × Dd → 100% trội D-; Aa × Aa → 3/4 A-, 1/4 aa; bb × Bb → 1/2 B-, 1/2 bb; Ee × Ee → 3/4 E-, 1/4 ee.\nVì D luôn trội (100%), để đời con trội 3 tính trạng thì cần trội ở 2 trong 3 cặp (A, B, E) và lặn ở 1 cặp:\n• Trội A, B; lặn E: (3/4) × (1/2) × (1/4) = 3/32.\n• Trội A, E; lặn B: (3/4) × (1/2) × (3/4) = 9/32.\n• Trội B, E; lặn A: (1/4) × (1/2) × (3/4) = 3/32.\nTổng tỉ lệ = 3/32 + 9/32 + 3/32 = 15/32."
+            },
+            {
+                id: 23,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic3",
+                topicName: "Dạng 3: Xác suất kiểu hình & Tổ hợp tính trạng trội/lặn",
+                question: "Cho phép lai P: AaBbDdee × AaBbDdEe, quá trình giảm phân diễn ra bình thường. Tỉ lệ con sinh ra có kiểu hình trội về 2 tính trạng là bao nhiêu? Biết mỗi gene quy định một tính trạng, các gene phân li độc lập và trội lặn hoàn toàn.",
+                options: { A: "9/32.", B: "27/128.", C: "15/64.", D: "9/64." },
+                answer: "A",
+                explanation: "Xét từng cặp:\n• 3 cặp (Aa, Bb, Dd) mỗi cặp cho 3/4 trội, 1/4 lặn; cặp ee × Ee cho 1/2 E- (trội), 1/2 ee (lặn).\nCó 2 trường hợp đời con trội về 2 tính trạng:\n• TH1: E trội (1/2) và 1 trong 3 tính trạng (A, B, D) trội: (1/2) × C(3,1) × (3/4) × (1/4)² = 9/128.\n• TH2: E lặn (1/2) và 2 trong 3 tính trạng (A, B, D) trội: (1/2) × C(3,2) × (3/4)² × (1/4) = 27/128.\nTổng tỉ lệ = 9/128 + 27/128 = 36/128 = 9/32."
+            },
+            {
+                id: 24,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic1",
+                topicName: "Dạng 1: Số loại giao tử & Tỉ lệ giao tử",
+                question: "Cơ thể mang kiểu gene AaBbDdeeFf khi giảm phân bình thường, loại giao tử mang 1 allele trội chiếm tỉ lệ bao nhiêu?",
+                options: { A: "1/4.", B: "1/8.", C: "1/16.", D: "3/8." },
+                answer: "A",
+                explanation: "Cơ thể AaBbDdeeFf có 4 cặp gene dị hợp (Aa, Bb, Dd, Ff) và 1 cặp đồng hợp lặn (ee).\nTổng số tổ hợp giao tử là 2⁴ = 16; Số loại giao tử mang 1 allele trội = C(4,1) = 4.\nTỉ lệ giao tử mang 1 allele trội = 4/16 = 1/4."
+            },
+            {
+                id: 25,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic1",
+                topicName: "Dạng 1: Số loại giao tử & Tỉ lệ giao tử",
+                question: "Cơ thể mang kiểu gene AaBBDdeeFf khi giảm phân bình thường, loại giao tử mang 3 allele trội chiếm tỉ lệ bao nhiêu?",
+                options: { A: "3/16.", B: "3/8.", C: "1/8.", D: "5/16." },
+                answer: "B",
+                explanation: "Cơ thể AaBBDdeeFf có cặp BB luôn cho 1 allele trội B (tỉ lệ 1), cặp ee cho 0 allele trội, và 3 cặp dị hợp (Aa, Dd, Ff) tạo 2³ = 8 tổ hợp giao tử.\nĐể giao tử mang 3 allele trội thì ngoài allele B, cần thêm 2 allele trội từ 3 cặp dị hợp.\nTỉ lệ = C(3,2) / 2³ = 3/8."
+            },
+            {
+                id: 26,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic1",
+                topicName: "Dạng 1: Số loại giao tử & Tỉ lệ giao tử",
+                question: "Cơ thể mang kiểu gene AaBbDdEeFf khi giảm phân bình thường, loại giao tử mang ít nhất 4 allele trội chiếm tỉ lệ bao nhiêu?",
+                options: { A: "1/4.", B: "3/16.", C: "5/32.", D: "1/16." },
+                answer: "B",
+                explanation: "Cơ thể AaBbDdEeFf có 5 cặp gene dị hợp, giảm phân tạo 2⁵ = 32 tổ hợp giao tử.\nGiao tử mang ít nhất 4 allele trội gồm giao tử mang 4 allele trội (C(5,4) = 5) và giao tử mang 5 allele trội (C(5,5) = 1).\nTỉ lệ = (5 + 1) / 32 = 6/32 = 3/16."
+            },
+            {
+                id: 27,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic4",
+                topicName: "Dạng 4: Tổ hợp allele trội & Bài toán tự thụ/giao phấn F₁",
+                question: "Theo lí thuyết, ở đời con của phép lai AaBbDd × AaBbDd, loại cá thể có ít nhất một allele trội chiếm tỉ lệ bao nhiêu?",
+                options: { A: "1/64.", B: "27/64.", C: "37/64.", D: "63/64." },
+                answer: "D",
+                explanation: "Cá thể có ít nhất 1 allele trội là tất cả các cá thể trừ cá thể đồng hợp lặn hoàn toàn (aabbdd).\nTỉ lệ cá thể aabbdd = (1/4)³ = 1/64.\nTỉ lệ cá thể có ít nhất 1 allele trội = 1 − 1/64 = 63/64."
+            },
+            {
+                id: 28,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic4",
+                topicName: "Dạng 4: Tổ hợp allele trội & Bài toán tự thụ/giao phấn F₁",
+                question: "Cho cây có kiểu gene AaBbDdEe tự thụ phấn, tạo ra đời F₁. Theo lí thuyết, tỉ lệ cá thể ở F₁ mang ít nhất 2 allele trội là bao nhiêu?",
+                options: { A: "219/256.", B: "247/256.", C: "255/256.", D: "28/256." },
+                answer: "B",
+                explanation: "Phép lai AaBbDdEe × AaBbDdEe có 8 cặp allele phân li ngẫu nhiên, tạo 2⁸ = 256 tổ hợp.\n• Số tổ hợp 0 allele trội = C(8,0) = 1; Số tổ hợp đúng 1 allele trội = C(8,1) = 8.\nTỉ lệ cá thể mang ít nhất 2 allele trội = 1 − (1 + 8)/256 = 247/256."
+            },
+            {
+                id: 29,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic4",
+                topicName: "Dạng 4: Tổ hợp allele trội & Bài toán tự thụ/giao phấn F₁",
+                question: "Cho biết allele A quy định thân cao trội hoàn toàn so với allele a quy định thân thấp; allele B quy định hoa đỏ trội hoàn toàn so với allele b quy định hoa trắng. Hai cặp gene này nằm trên 2 cặp NST thường khác nhau. Cho cây dị hợp 2 cặp gene tự thụ phấn được F₁. Lấy ngẫu nhiên 1 cây thân cao, hoa đỏ ở F₁ cho tự thụ phấn. Xác suất xuất hiện cây thân thấp, hoa trắng ở đời F₂ là:",
+                options: { A: "1/36.", B: "1/81.", C: "4/81.", D: "1/16." },
+                answer: "A",
+                explanation: "Cây F₁ thân cao, hoa đỏ (A-B-) gồm các kiểu gene với tỉ lệ: 1/9 AABB : 2/9 AABb : 2/9 AaBB : 4/9 AaBb.\nĐể đời con F₂ xuất hiện cây thân thấp, hoa trắng (aabb) thì cây F₁ được chọn phải có kiểu gene AaBb (xác suất 4/9).\nCây AaBb tự thụ phấn cho aabb với tỉ lệ 1/16 → Xác suất xuất hiện cây aabb ở F₂ = (4/9) × (1/16) = 1/36."
+            },
+            {
+                id: 30,
+                level: "VDC",
+                levelName: "Vận dụng cao",
+                topic: "topic4",
+                topicName: "Dạng 4: Tổ hợp allele trội & Bài toán tự thụ/giao phấn F₁",
+                question: "Ở đậu Hà Lan, allele A quy định hạt vàng trội hoàn toàn so với allele a quy định hạt xanh; allele B quy định vỏ trơn trội hoàn toàn so với allele b quy định vỏ nhăn. Hai cặp gene này nằm trên 2 cặp NST thường khác nhau. Cho cây dị hợp 2 cặp gene tự thụ phấn được F₁. Lấy ngẫu nhiên 2 cây hạt vàng, vỏ trơn ở F₁ giao phấn với nhau. Xác suất xuất hiện cây hạt xanh, vỏ trơn ở đời F₂ là:",
+                options: { A: "8/81.", B: "1/81.", C: "4/81.", D: "16/81." },
+                answer: "A",
+                explanation: "Trong số các cây hạt vàng, vỏ trơn (A-B-) ở F₁, tỉ lệ kiểu gene ở từng cặp tính trạng độc lập:\n• Cặp gene A: (1/3 AA : 2/3 Aa) → giao tử a = 1/3 → tỉ lệ đời con aa = (1/3)² = 1/9.\n• Cặp gene B: (1/3 BB : 2/3 Bb) → giao tử b = 1/3 → tỉ lệ đời con bb = (1/3)² = 1/9 → tỉ lệ đời con B- = 1 − 1/9 = 8/9.\nVậy xác suất xuất hiện cây hạt xanh, vỏ trơn (aaB-) ở F₂ = (1/9) × (8/9) = 8/81."
+            }
+        ];
+
+        // =========================================================================
+        // 2. TRẠNG THÁI ỨNG DỤNG (STATE)
+        // =========================================================================
+        let state = {
+            studentName: "",
+            studentClass: "",
+            selectedMode: "all",       // 'all' | 'random' | 'level' | 'topic' | 'wrong'
+            selectedLevel: "VD",       // 'NB' | 'TH' | 'VD' | 'VDC'
+            selectedTopic: "topic1",
+            activeQuestions: [],       // Danh sách câu hỏi của phiên làm bài hiện tại
+            userAnswers: {},           // { indexInActive: 'A' | 'B' | 'C' | 'D' }
+            currentIndex: 0,
+            isSubmitted: false,
+            timerInterval: null,
+            elapsedSeconds: 0,
+            wrongQuestionIds: []       // Mảng ID các câu đã làm sai lưu ở localStorage
+        };
+
+        const STORAGE_KEY_WRONG = "gdtx_xm_sinh12_mendel_wrong_ids";
+        const STORAGE_KEY_STUDENT = "gdtx_xm_sinh12_student";
+
+        // =========================================================================
+        // 3. KHỞI TẠO & LƯU TRỮ LOCALSTORAGE
+        // =========================================================================
+        window.onload = function () {
+            loadSavedData();
+            updateWrongBadges();
+        };
+
+        function loadSavedData() {
+            try {
+                const savedWrong = localStorage.getItem(STORAGE_KEY_WRONG);
+                if (savedWrong) {
+                    state.wrongQuestionIds = JSON.parse(savedWrong);
+                }
+                const savedStudent = localStorage.getItem(STORAGE_KEY_STUDENT);
+                if (savedStudent) {
+                    const parsed = JSON.parse(savedStudent);
+                    if (parsed.name) document.getElementById("input-name").value = parsed.name;
+                    if (parsed.class) document.getElementById("input-class").value = parsed.class;
+                }
+            } catch (e) {
+                console.warn("Không thể đọc dữ liệu lưu trữ cục bộ:", e);
+            }
+        }
+
+        function saveWrongIds() {
+            try {
+                localStorage.setItem(STORAGE_KEY_WRONG, JSON.stringify(state.wrongQuestionIds));
+            } catch (e) {
+                console.warn("Không thể lưu danh sách câu sai:", e);
+            }
+            updateWrongBadges();
+        }
+
+        function updateWrongBadges() {
+            const count = state.wrongQuestionIds.length;
+            document.getElementById("wrong-count-badge").textContent = `${count} câu sai`;
+            document.getElementById("mode-wrong-count").textContent = `${count} câu`;
+        }
+
+        // =========================================================================
+        // 4. ĐIỀU KHIỂN TRANG CHỦ & CHỌN CHẾ ĐỘ LUYỆN TẬP
+        // =========================================================================
+        function selectMode(mode) {
+            state.selectedMode = mode;
+
+            // Cập nhật giao diện thẻ được chọn
+            document.querySelectorAll(".mode-card").forEach(card => {
+                const isSelected = card.getAttribute("data-mode") === mode;
+                if (isSelected) {
+                    card.classList.remove("border-slate-200", "bg-white");
+                    card.classList.add("border-blue-600", "bg-blue-50/60");
+                } else {
+                    card.classList.remove("border-blue-600", "bg-blue-50/60");
+                    card.classList.add("border-slate-200", "bg-white");
+                }
+            });
+
+            // Ẩn/hiện bộ lọc phụ tương ứng
+            const subLevel = document.getElementById("subfilter-level");
+            const subTopic = document.getElementById("subfilter-topic");
+
+            subLevel.classList.toggle("hidden", mode !== "level");
+            subTopic.classList.toggle("hidden", mode !== "topic");
+        }
+
+        function setLevelFilter(level) {
+            state.selectedLevel = level;
+            document.querySelectorAll(".level-btn").forEach(btn => {
+                const isSelected = btn.getAttribute("data-val") === level;
+                if (isSelected) {
+                    btn.className = "level-btn px-3 py-2 rounded-lg text-xs font-semibold border-2 border-amber-600 bg-amber-600 text-white transition";
+                } else {
+                    btn.className = "level-btn px-3 py-2 rounded-lg text-xs font-semibold border border-amber-300 bg-white text-slate-700 hover:bg-amber-100 transition";
+                }
+            });
+        }
+
+        function showNotice(title, message) {
+            document.getElementById("notice-title").textContent = title;
+            document.getElementById("notice-message").textContent = message;
+            document.getElementById("modal-notice").classList.remove("hidden");
+        }
+
+        function closeNoticeModal() {
+            document.getElementById("modal-notice").classList.add("hidden");
+        }
+
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function startQuiz() {
+            const nameInput = document.getElementById("input-name").value.trim();
+            const classInput = document.getElementById("input-class").value.trim();
+            const errorBox = document.getElementById("home-error-box");
+
+            if (!nameInput || !classInput) {
+                errorBox.classList.remove("hidden");
+                return;
+            }
+            errorBox.classList.add("hidden");
+
+            state.studentName = nameInput;
+            state.studentClass = classInput;
+            try {
+                localStorage.setItem(STORAGE_KEY_STUDENT, JSON.stringify({ name: nameInput, class: classInput }));
+            } catch (e) {}
+
+            // Lọc danh sách câu hỏi theo chế độ
+            let selectedQuestions = [];
+            let modeLabel = "";
+
+            if (state.selectedMode === "all") {
+                selectedQuestions = [...QUESTION_BANK];
+                modeLabel = "Ôn tập toàn bộ (30 câu)";
+            } else if (state.selectedMode === "random") {
+                selectedQuestions = shuffleArray(QUESTION_BANK);
+                modeLabel = "Luyện tập ngẫu nhiên (30 câu)";
+            } else if (state.selectedMode === "level") {
+                selectedQuestions = QUESTION_BANK.filter(q => q.level === state.selectedLevel);
+                const levelNames = { NB: "Nhận biết", TH: "Thông hiểu", VD: "Vận dụng", VDC: "Vận dụng cao" };
+                if (selectedQuestions.length === 0) {
+                    showNotice(
+                        "Chưa có câu hỏi ở mức độ này",
+                        `Phiếu bài tập chuyên đề này tập trung vào mức độ Vận dụng (17 câu) và Vận dụng cao (13 câu). Hiện chưa có câu hỏi mức ${levelNames[state.selectedLevel]}. Vui lòng chọn mức Vận dụng hoặc Vận dụng cao!`
+                    );
+                    return;
+                }
+                modeLabel = `Mức độ: ${levelNames[state.selectedLevel]} (${selectedQuestions.length} câu)`;
+            } else if (state.selectedMode === "topic") {
+                const topicVal = document.getElementById("topic-select").value;
+                selectedQuestions = QUESTION_BANK.filter(q => q.topic === topicVal);
+                modeLabel = `${selectedQuestions[0].topicName} (${selectedQuestions.length} câu)`;
+            } else if (state.selectedMode === "wrong") {
+                selectedQuestions = QUESTION_BANK.filter(q => state.wrongQuestionIds.includes(q.id));
+                if (selectedQuestions.length === 0) {
+                    showNotice(
+                        "Chưa có câu hỏi sai nào!",
+                        "Bạn hiện chưa có câu trả lời sai nào được lưu lại. Hãy làm bài ôn tập trước để hệ thống ghi nhận kết quả nhé!"
+                    );
+                    return;
+                }
+                modeLabel = `Làm lại câu sai (${selectedQuestions.length} câu)`;
+            }
+
+            // Khởi tạo phiên làm bài mới (Tuyệt đối không lộ đáp án)
+            state.activeQuestions = selectedQuestions;
+            state.userAnswers = {};
+            state.currentIndex = 0;
+            state.isSubmitted = false;
+            state.elapsedSeconds = 0;
+
+            // Cập nhật Header & Chuyển màn hình
+            document.getElementById("display-student-name").textContent = state.studentName;
+            document.getElementById("display-student-class").textContent = `Lớp: ${state.studentClass}`;
+            document.getElementById("header-student-info").classList.remove("hidden");
+            document.getElementById("header-student-info").classList.add("flex");
+            document.getElementById("quiz-mode-badge").textContent = modeLabel;
+
+            switchView("quiz");
+            startTimer();
+            renderQuestionGrid();
+            renderCurrentQuestion();
+            updateProgress();
+        }
+
+        function switchView(viewName) {
+            document.getElementById("view-home").classList.add("hidden");
+            document.getElementById("view-quiz").classList.add("hidden");
+            document.getElementById("view-result").classList.add("hidden");
+
+            document.getElementById(`view-${viewName}`).classList.remove("hidden");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function returnToHome() {
+            stopTimer();
+            document.getElementById("header-student-info").classList.add("hidden");
+            document.getElementById("header-student-info").classList.remove("flex");
+            updateWrongBadges();
+            switchView("home");
+        }
+
+        // =========================================================================
+        // 5. BỘ ĐẾM THỜI GIAN & HIỂN THỊ CÂU HỎI LÀM BÀI
+        // =========================================================================
+        function startTimer() {
+            stopTimer();
+            updateTimerText();
+            state.timerInterval = setInterval(() => {
+                state.elapsedSeconds++;
+                updateTimerText();
+            }, 1000);
+        }
+
+        function stopTimer() {
+            if (state.timerInterval) {
+                clearInterval(state.timerInterval);
+                state.timerInterval = null;
+            }
+        }
+
+        function updateTimerText() {
+            const mins = Math.floor(state.elapsedSeconds / 60).toString().padStart(2, "0");
+            const secs = (state.elapsedSeconds % 60).toString().padStart(2, "0");
+            document.getElementById("timer-display").textContent = `${mins}:${secs}`;
+        }
+
+        function renderCurrentQuestion() {
+            const total = state.activeQuestions.length;
+            const idx = state.currentIndex;
+            const q = state.activeQuestions[idx];
+            const chosen = state.userAnswers[idx] || null;
+
+            // Cập nhật thông tin tiêu đề câu
+            document.getElementById("q-number-badge").textContent = `Câu ${idx + 1} / ${total}`;
+            document.getElementById("q-original-num").textContent = `Phiếu gốc: Câu ${q.id}`;
+
+            const levelBadge = document.getElementById("q-level-badge");
+            levelBadge.textContent = `Mức độ: ${q.levelName}`;
+            if (q.level === "VDC") {
+                levelBadge.className = "text-xs font-bold px-2.5 py-1 rounded-lg bg-purple-100 text-purple-800";
+            } else {
+                levelBadge.className = "text-xs font-bold px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800";
+            }
+
+            // Nội dung câu hỏi
+            document.getElementById("q-content").textContent = q.question;
+
+            // Render 4 phương án A, B, C, D (Chỉ hiển thị lựa chọn của học viên, KHÔNG lộ đáp án)
+            const optionsContainer = document.getElementById("q-options");
+            optionsContainer.innerHTML = "";
+
+            ["A", "B", "C", "D"].forEach(key => {
+                const isSelected = chosen === key;
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.onclick = () => selectAnswer(key);
+
+                btn.className = isSelected
+                    ? "w-full text-left p-4 rounded-xl border-2 border-blue-600 bg-blue-50/80 shadow-xs transition flex items-center gap-3.5"
+                    : "w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white hover:border-blue-300 hover:bg-slate-50 transition flex items-center gap-3.5";
+
+                btn.innerHTML = `
+                    <span class="w-9 h-9 rounded-lg flex items-center justify-center font-extrabold text-sm shrink-0 transition ${
+                        isSelected ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-700"
+                    }">
+                        ${key}
+                    </span>
+                    <span class="text-sm sm:text-base font-medium ${isSelected ? "text-blue-950 font-semibold" : "text-slate-800"}">
+                        ${q.options[key]}
+                    </span>
+                `;
+                optionsContainer.appendChild(btn);
+            });
+
+            // Cập nhật trạng thái nút Trước / Tiếp theo
+            document.getElementById("btn-prev").disabled = idx === 0;
+            document.getElementById("btn-next").disabled = idx === total - 1;
+
+            renderQuestionGrid();
+        }
+
+        function selectAnswer(optionKey) {
+            if (state.isSubmitted) return;
+            state.userAnswers[state.currentIndex] = optionKey;
+            renderCurrentQuestion();
+            updateProgress();
+        }
+
+        function clearCurrentAnswer() {
+            if (state.isSubmitted) return;
+            delete state.userAnswers[state.currentIndex];
+            renderCurrentQuestion();
+            updateProgress();
+        }
+
+        function prevQuestion() {
+            if (state.currentIndex > 0) {
+                state.currentIndex--;
+                renderCurrentQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (state.currentIndex < state.activeQuestions.length - 1) {
+                state.currentIndex++;
+                renderCurrentQuestion();
+            }
+        }
+
+        function jumpToQuestion(index) {
+            state.currentIndex = index;
+            renderCurrentQuestion();
+        }
+
+        function renderQuestionGrid() {
+            const grid = document.getElementById("question-grid");
+            grid.innerHTML = "";
+
+            state.activeQuestions.forEach((q, idx) => {
+                const isCurrent = idx === state.currentIndex;
+                const isAnswered = Boolean(state.userAnswers[idx]);
+
+                let btnClass = "h-10 rounded-xl font-bold text-xs transition flex items-center justify-center ";
+                if (isCurrent) {
+                    btnClass += "bg-blue-600 text-white ring-2 ring-blue-300 shadow-xs";
+                } else if (isAnswered) {
+                    btnClass += "bg-emerald-500 text-white hover:bg-emerald-600";
+                } else {
+                    btnClass += "bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200";
+                }
+
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = btnClass;
+                btn.textContent = idx + 1;
+                btn.onclick = () => jumpToQuestion(idx);
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateProgress() {
+            const total = state.activeQuestions.length;
+            const answeredCount = Object.keys(state.userAnswers).length;
+            const percent = total > 0 ? Math.round((answeredCount / total) * 100) : 0;
+
+            document.getElementById("progress-text").textContent = `${answeredCount}/${total}`;
+            document.getElementById("progress-bar").style.width = `${percent}%`;
+        }
+
+        // =========================================================================
+        // 6. NỘP BÀI, CHẤM ĐIỂM TỰ ĐỘNG & XEM LỜI GIẢI CHI TIẾT
+        // =========================================================================
+        function openSubmitModal() {
+            const total = state.activeQuestions.length;
+            const answeredCount = Object.keys(state.userAnswers).length;
+            const unansweredCount = total - answeredCount;
+
+            const summaryBox = document.getElementById("modal-submit-summary");
+            summaryBox.innerHTML = `
+                <div class="flex justify-between">
+                    <span>Tổng số câu hỏi:</span>
+                    <strong class="text-slate-900">${total} câu</strong>
+                </div>
+                <div class="flex justify-between text-emerald-700">
+                    <span>Số câu đã trả lời:</span>
+                    <strong>${answeredCount} câu</strong>
+                </div>
+                <div class="flex justify-between ${unansweredCount > 0 ? "text-rose-600" : "text-slate-600"}">
+                    <span>Số câu chưa trả lời:</span>
+                    <strong>${unansweredCount} câu</strong>
+                </div>
+            `;
+
+            document.getElementById("modal-submit").classList.remove("hidden");
+        }
+
+        function closeSubmitModal() {
+            document.getElementById("modal-submit").classList.add("hidden");
+        }
+
+        async function confirmSubmitQuiz() {
+            closeSubmitModal();
+            stopTimer();
+            state.isSubmitted = true;
+
+            const total = state.activeQuestions.length;
+            let correctCount = 0;
+            let wrongCount = 0;
+            let unansweredCount = 0;
+
+            // Cập nhật sổ tay câu sai
+            const wrongSet = new Set(state.wrongQuestionIds);
+
+            state.activeQuestions.forEach((q, idx) => {
+                const userAns = state.userAnswers[idx];
+                if (!userAns) {
+                    unansweredCount++;
+                    wrongSet.add(q.id); // Câu chưa trả lời cũng lưu để ôn tập
+                } else if (userAns === q.answer) {
+                    correctCount++;
+                    wrongSet.delete(q.id); // Làm đúng thì gỡ khỏi danh sách câu sai
+                } else {
+                    wrongCount++;
+                    wrongSet.add(q.id);
+                }
+            });
+
+            state.wrongQuestionIds = Array.from(wrongSet).sort((a, b) => a - b);
+            saveWrongIds();
+
+            // Tính điểm hệ 10 & tỉ lệ hoàn thành
+            const score10 = total > 0 ? ((correctCount / total) * 10).toFixed(2) : "0.00";
+            const completionRate = total > 0 ? Math.round(((correctCount + wrongCount) / total) * 100) : 0;
+            const accuracyRate = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+
+            // Xếp loại khích lệ học viên
+            let rankText = "Cần ôn tập kỹ hơn";
+            const numScore = parseFloat(score10);
+            if (numScore >= 9.0) rankText = "Xuất sắc!";
+            else if (numScore >= 8.0) rankText = "Giỏi!";
+            else if (numScore >= 6.5) rankText = "Khá!";
+            else if (numScore >= 5.0) rankText = "Đạt yêu cầu";
+
+            // Hiển thị lên màn hình kết quả
+            const mins = Math.floor(state.elapsedSeconds / 60).toString().padStart(2, "0");
+            const secs = (state.elapsedSeconds % 60).toString().padStart(2, "0");
+
+            document.getElementById("res-student-banner").textContent = `Học viên: ${state.studentName} – Lớp ${state.studentClass}`;
+            document.getElementById("res-time-taken").textContent = `Thời gian làm bài: ${mins} phút ${secs} giây`;
+            document.getElementById("res-score").textContent = score10;
+            document.getElementById("res-rank").textContent = rankText;
+            document.getElementById("res-correct").textContent = correctCount;
+            document.getElementById("res-wrong").textContent = wrongCount;
+            document.getElementById("res-unanswered").textContent = unansweredCount;
+            document.getElementById("res-completion").textContent = `${completionRate}%`;
+            document.getElementById("res-accuracy").textContent = `Chính xác: ${accuracyRate}%`;
+
+            // Ẩn/hiện nút làm lại câu sai nếu không có câu sai
+            const retryBtn = document.getElementById("btn-retry-wrong-res");
+            retryBtn.classList.toggle("hidden", state.wrongQuestionIds.length === 0);
+
+            // ==========================================
+            // ĐỒNG BỘ DỮ LIỆU LÊN ĐÁM MÂY (FIREBASE)
+            // ==========================================
+            const maHocVien = `${state.studentClass}_${state.studentName}`.replace(/\s+/g, "_");
+            const maBaiTap = "sinh_hoc_12_mendel";
+            
+            const duLieuBaiLam = {
+                hoTen: state.studentName,
+                lop: state.studentClass,
+                diemSo: parseFloat(score10),
+                soCauDung: correctCount,
+                soCauSai: wrongCount,
+                tongSoCau: total,
+                thoiGianLamBaiGiay: state.elapsedSeconds
+            };
+
+            if (window.saveProgressToCloud) {
+                await window.saveProgressToCloud(maHocVien, maBaiTap, duLieuBaiLam);
+            }
+
+            renderReviewList("all");
+            switchView("result");
+        }
+
+        function filterReview(filterType) {
+            document.querySelectorAll(".rev-filter-btn").forEach(btn => {
+                const isSelected = btn.getAttribute("data-filter") === filterType;
+                btn.className = isSelected
+                    ? "rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white"
+                    : "rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200";
+            });
+            renderReviewList(filterType);
+        }
+
+        function renderReviewList(filterType) {
+            const container = document.getElementById("review-list");
+            container.innerHTML = "";
+
+            let displayedCount = 0;
+
+            state.activeQuestions.forEach((q, idx) => {
+                const userAns = state.userAnswers[idx] || null;
+                const isCorrect = userAns === q.answer;
+                const isUnanswered = userAns === null;
+
+                if (filterType === "correct" && !isCorrect) return;
+                if (filterType === "wrong" && isCorrect) return;
+
+                displayedCount++;
+
+                // Xác định màu viền & nhãn trạng thái
+                let statusBadge = "";
+                let cardBorder = "";
+                if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-lg"><i class="fa-solid fa-check mr-1"></i>Đúng</span>`;
+                    cardBorder = "border-emerald-200 bg-emerald-50/20";
+                } else if (isUnanswered) {
+                    statusBadge = `<span class="bg-slate-200 text-slate-700 text-xs font-bold px-2.5 py-1 rounded-lg"><i class="fa-solid fa-minus mr-1"></i>Chưa trả lời</span>`;
+                    cardBorder = "border-slate-300 bg-slate-50/40";
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 text-xs font-bold px-2.5 py-1 rounded-lg"><i class="fa-solid fa-xmark mr-1"></i>Sai</span>`;
+                    cardBorder = "border-rose-200 bg-rose-50/20";
+                }
+
+                // Render các phương án A, B, C, D kèm đánh dấu đúng/sai
+                let optionsHtml = "";
+                ["A", "B", "C", "D"].forEach(key => {
+                    const isRightAnswer = key === q.answer;
+                    const isUserChoice = key === userAns;
+
+                    let optStyle = "border-slate-200 bg-white text-slate-700";
+                    let iconHtml = "";
+
+                    if (isRightAnswer) {
+                        optStyle = "border-emerald-500 bg-emerald-50 text-emerald-950 font-semibold";
+                        iconHtml = `<span class="ml-auto text-xs font-bold text-emerald-700"><i class="fa-solid fa-circle-check mr-1"></i>Đáp án đúng</span>`;
+                    } else if (isUserChoice && !isRightAnswer) {
+                        optStyle = "border-rose-500 bg-rose-50 text-rose-950 font-semibold";
+                        iconHtml = `<span class="ml-auto text-xs font-bold text-rose-700"><i class="fa-solid fa-circle-xmark mr-1"></i>Bạn chọn</span>`;
+                    }
+
+                    optionsHtml += `
+                        <div class="p-3 rounded-xl border ${optStyle} text-sm flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ${
+                                isRightAnswer ? "bg-emerald-600 text-white" : isUserChoice ? "bg-rose-600 text-white" : "bg-slate-100 text-slate-700"
+                            }">${key}</span>
+                            <span>${q.options[key]}</span>
+                            ${iconHtml}
+                        </div>
+                    `;
+                });
+
+                const card = document.createElement("div");
+                card.className = `rounded-2xl border-2 ${cardBorder} p-4 sm:p-5 space-y-3.5`;
+                card.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="font-extrabold text-sm text-blue-800">Câu ${idx + 1}</span>
+                            <span class="text-xs text-slate-500">(Phiếu gốc: Câu ${q.id} • ${q.levelName})</span>
+                        </div>
+                        ${statusBadge}
+                    </div>
+
+                    <p class="text-sm sm:text-base font-semibold text-slate-900 leading-relaxed">${q.question}</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                        ${optionsHtml}
+                    </div>
+
+                    <!-- Khung hướng dẫn giải chi tiết -->
+                    <div class="bg-blue-50/90 border border-blue-200 rounded-xl p-3.5 text-sm text-slate-800 space-y-1">
+                        <div class="font-bold text-blue-800 text-xs uppercase flex items-center gap-1.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500"></i>
+                            <span>Hướng dẫn giải chi tiết (Chọn ${q.answer}):</span>
+                        </div>
+                        <p class="whitespace-pre-line text-slate-700 leading-relaxed text-xs sm:text-sm">${q.explanation}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            if (displayedCount === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-slate-500 text-sm">
+                        Không có câu hỏi nào thuộc mục lọc này.
+                    </div>
+                `;
+            }
+        }
+
+        function retryWrongQuestions() {
+            if (state.wrongQuestionIds.length === 0) {
+                showNotice("Tuyệt vời!", "Bạn không còn câu hỏi sai nào cần làm lại.");
+                return;
+            }
+            selectMode("wrong");
+            startQuiz();
+        }
+    </script>
+
+    <!-- ========================================================================= -->
+    <!-- MÃ ĐỒNG BỘ DỮ LIỆU ĐÁM MÂY (FIREBASE FIRESTORE) CHO DỰ ÁN BAI-TAP-MENDEN      -->
+    <!-- ========================================================================= -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+      import { 
+        getFirestore, doc, setDoc, getDoc, collection, getDocs, serverTimestamp 
+      } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBfBwvaxXSVmiJ8-ltsZpfLhHGddC9BC2E",
+        authDomain: "bai-tap-menden.firebaseapp.com",
+        projectId: "bai-tap-menden",
+        storageBucket: "bai-tap-menden.firebasestorage.app",
+        messagingSenderId: "131546301270",
+        appId: "1:131546301270:web:d9cde17a39b084fdc68cf7"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // Hàm lưu/đồng bộ kết quả lên đám mây
+      window.saveProgressToCloud = async function(studentId, exerciseId, data) {
+        try {
+          const docRef = doc(db, "bai_tap", exerciseId, "ket_qua", studentId);
+          await setDoc(docRef, {
+            ...data,
+            updatedAt: serverTimestamp()
+          }, { merge: true });
+
+          console.log("Đã đồng bộ dữ liệu lên đám mây thành công!");
+          return true;
+        } catch (error) {
+          console.error("Lỗi khi đồng bộ lên đám mây:", error);
+          localStorage.setItem(`backup_${exerciseId}_${studentId}`, JSON.stringify(data));
+          return false;
+        }
+      };
+
+      // Hàm tải dữ liệu khi học viên mở lại trang
+      window.loadProgressFromCloud = async function(studentId, exerciseId) {
+        try {
+          const docRef = doc(db, "bai_tap", exerciseId, "ket_qua", studentId);
+          const docSnap = await getDoc(docRef);
+          return docSnap.exists() ? docSnap.data() : null;
+        } catch (error) {
+          console.error("Lỗi khi tải dữ liệu:", error);
+          return null;
+        }
+      };
+
+      // Hàm lấy bảng điểm toàn bộ lớp (dành cho giáo viên)
+      window.getAllResultsForTeacher = async function(exerciseId) {
+        const querySnapshot = await getDocs(collection(db, "bai_tap", exerciseId, "ket_qua"));
+        const results = [];
+        querySnapshot.forEach((doc) => {
+          results.push({ id: doc.id, ...doc.data() });
+        });
+        return results;
+      };
+    </script>
+</body>
+</html>
